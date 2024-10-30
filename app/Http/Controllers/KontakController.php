@@ -48,9 +48,13 @@ class KontakController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(kontak $kontak)
+    public function show($kontak)
     {
-        //
+        $kontak = Kontak::find($kontak);
+        $data['success'] = true;
+        $data['message'] = "Detail data kontak";
+        $data['result'] = $kontak;
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
